@@ -4,7 +4,7 @@ private [ "_oldbuildtype", "_cfg", "_initindex", "_dialog", "_iscommandant", "_s
 
 if (([ getpos player , 500 , KPLIB_side_enemy ] call KPLIB_fnc_getUnitsCount ) > 4 ) exitWith { hint localize "STR_BUILD_ENEMIES_NEARBY";};
 
-if (isNil "buildtype") then {buildtype = 1};
+if (isNil "buildtype") then {buildtype = 2};
 if (isNil "buildindex") then {buildindex = -1};
 dobuild = 0;
 _oldbuildtype = -1;
@@ -19,9 +19,8 @@ if (player == [] call KPLIB_fnc_getCommander) then {
     _iscommandant = true;
 };
 
-ctrlShow [108, _iscommandant];
-ctrlShow [1085, _iscommandant];
-ctrlShow [121, _iscommandant];
+// No AI recruiting: hide the infantry page, the squad page and the manned build button for everyone
+{ctrlShow [_x, false];} forEach [102, 1025, 108, 1085, 121];
 
 _squadname = "";
 _buildpages = [
