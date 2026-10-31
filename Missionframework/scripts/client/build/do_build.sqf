@@ -357,7 +357,7 @@ while { true } do {
             if(buildtype == 99) then {
                 _new_fob = getpos player;
                 [_new_fob, false] remoteExec ["build_fob_remote_call",2];
-                buildtype = 1;
+                buildtype = 2;
             };
             build_confirmed = 0;
         };

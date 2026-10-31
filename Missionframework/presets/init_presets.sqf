@@ -232,7 +232,7 @@ KPLIB_o_squadAir    = [opfor_squad_leader, opfor_medic, opfor_machinegunner, opf
 /*
     Liberation specific collections
 */
-KPLIB_buildList         = [[], infantry_units, light_vehicles, heavy_vehicles, air_vehicles, static_vehicles, buildings, support_vehicles, KPLIB_b_allSquads];
+KPLIB_buildList         = [[], [], light_vehicles, heavy_vehicles, air_vehicles, static_vehicles, buildings, support_vehicles, []];  // infantry and squad pages stay empty: no AI recruiting
 KPLIB_crates            = [KP_liberation_supply_crate, KP_liberation_ammo_crate, KP_liberation_fuel_crate];
 KPLIB_airSlots          = [KP_liberation_heli_slot_building, KP_liberation_plane_slot_building];
 KPLIB_storageBuildings  = [KP_liberation_small_storage_building, KP_liberation_large_storage_building];
