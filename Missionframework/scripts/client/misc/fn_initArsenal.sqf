@@ -83,7 +83,7 @@ if (KPLIB_param_useArsenalPreset) then {
 
     {
         // Handle CBA optics, https://github.com/CBATeam/CBA_A3/wiki/Scripted-Optics
-        if (missionNamespace getVariable ["CBA_optics", false]) then {
+        if (missionNamespace getVariable ["CBA_optics", false] && {!isNil "CBA_optics_PIPOptics"} && {!isNil "CBA_optics_NonPIPOptics"}) then {
             private _pipOptic = CBA_optics_PIPOptics getVariable _x;
             if (!isNil "_pipOptic") then {
                 KPLIB_arsenalAllowedExtension pushBackUnique _pipOptic;
