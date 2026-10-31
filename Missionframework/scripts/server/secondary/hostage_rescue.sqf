@@ -43,24 +43,25 @@ private _guards = [_dest, 3, [60, 35, 10]] call KPLIB_fnc_sideMissionGuards;
 
 // Announce
 secondary_objective_position = _dest;
-secondary_objective_position_marker = _dest;
-publicVariable "secondary_objective_position_marker";
-KPLIB_secondary_marker_info = [150, "ColorBlue", "mil_unknown"]; publicVariable "KPLIB_secondary_marker_info";
-KPLIB_secondary_in_progress = _index; publicVariable "KPLIB_secondary_in_progress";
-[_dest, _title, 150, true, "ColorBlue", "mil_unknown"] remoteExec ["KPLIB_fnc_sideMissionMarker"];
+[
+    _index, _dest, "STR_SIDEMISSION_HOSTAGE_DESC",
+    [markerText _town, count _hostages, round (KPLIB_hostage_time / 60)],
+    [150, "ColorBlue", "mil_unknown"]
+] call KPLIB_fnc_sideMissionStart;
 
 [format ["Hostage rescue started - town: %1, position: %2, hostages: %3, guards and vehicles: %4", _town, _dest, count _hostages, count _guards], "SIDEMISSION"] call KPLIB_fnc_log;
 
 // Wait until every surviving hostage is free, or none is left, or the time is up
 private _start = time;
 private _result = -1;
+private _reason = "";
 
 while {_result < 0} do {
     sleep 5;
 
     private _alive = _hostages select {alive _x};
-    if (_alive isEqualTo []) exitWith {_result = 0;};
-    if ((time - _start) > KPLIB_hostage_time) exitWith {_result = 0;};
+    if (_alive isEqualTo []) exitWith {_result = 0; _reason = "STR_SIDEMISSION_REASON_HOSTAGES";};
+    if ((time - _start) > KPLIB_hostage_time) exitWith {_result = 0; _reason = "STR_SIDEMISSION_REASON_TIME";};
     if ((_alive findIf {!(_x getVariable ["KPLIB_hostageFreed", false])}) == -1) exitWith {_result = 1;};
 };
 
@@ -72,7 +73,7 @@ if (_result == 1) then {
     _quality = (0.6 * _aliveScore) + (0.4 * _timeScore);
 };
 
-[_index, _result == 1, _quality] call KPLIB_fnc_sideMissionEnd;
+[_index, _result == 1, _quality, _reason] call KPLIB_fnc_sideMissionEnd;
 
 // Clean up after the players had time to see the result
 sleep 120;

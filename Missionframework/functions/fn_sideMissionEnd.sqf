@@ -6,7 +6,7 @@
 
     Description:
         Finishes a side mission from the registry (KPLIB_sidemissions): pays or takes the civil reputation, pays the intel
-        reward, frees the mission slot, tells all players and saves.
+        reward, ends the task, frees the mission slot, tells all players and saves.
         On success the civil reputation changes by the mission's base gain plus its bonus scaled by the quality.
         On failure it drops by the mission's failure loss. Civilians dying during the mission never cost civil reputation here.
 
@@ -14,6 +14,7 @@
         _index      - Index of the mission in KPLIB_sidemissions                [NUMBER, defaults to -1]
         _success    - Mission was successful                                    [BOOL, defaults to false]
         _quality    - How well the mission went from 0 to 1 (success only)      [NUMBER, defaults to 0]
+        _reason     - Localisation key of why it failed, shown in the debrief   [STRING, defaults to ""]
 
     Returns:
         Civil reputation change [NUMBER]
@@ -22,7 +23,8 @@
 params [
     ["_index", -1, [0]],
     ["_success", false, [false]],
-    ["_quality", 0, [0]]
+    ["_quality", 0, [0]],
+    ["_reason", "", [""]]
 ];
 
 if (!isServer) exitWith {0};
@@ -53,7 +55,15 @@ if (_repChange != 0) then {
 KPLIB_secondary_in_progress = -1; publicVariable "KPLIB_secondary_in_progress";
 secondary_objective_position_marker = []; publicVariable "secondary_objective_position_marker";
 
-[_title, _success, _repChange, _intelGain, round (_quality * 100)] remoteExec ["KPLIB_fnc_sideMissionNotify"];
+// End the task (missions which don't create one, like the original three, have none) and remove it after a while
+private _task = missionNamespace getVariable ["KPLIB_sidemission_task", ""];
+if (_task != "" && {[_task] call BIS_fnc_taskExists}) then {
+    [_task, ["FAILED", "SUCCEEDED"] select _success, true] call BIS_fnc_taskSetState;
+    [_task] spawn {sleep 180; params ["_task"]; if ([_task] call BIS_fnc_taskExists) then {[_task] call BIS_fnc_deleteTask;};};
+};
+KPLIB_sidemission_task = "";
+
+[_title, _success, _repChange, _intelGain, round (_quality * 100), _reason] remoteExec ["KPLIB_fnc_sideMissionNotify"];
 
 sleep 1;
 [] spawn KPLIB_fnc_doSave;

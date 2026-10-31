@@ -3523,25 +3523,58 @@
             <Original>Hostage Rescue</Original>
         </Key>
         <Key ID="STR_SECONDARY_BRIEFING4">
-            <Original>&lt;t size='1.3' color='#ffa000'&gt;HOSTAGE RESCUE&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;OPFOR is holding local civilians in a compound in a town beyond our lines. They are guarded, and every day they stay there turns the population further against us.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;Get to the marked position, deal with the guards and free every hostage by walking up to them and using the action. Free them all, keep them alive and be quick: all three raise your reward. If every hostage dies or the time runs out, the mission fails.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1.15' color='#00a0ff'&gt;Cost: 10&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ffa000'&gt;Reward: civil reputation +5, up to +5 more for a fast rescue with every hostage alive, and 12 intel&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ff4040'&gt;Failure: civil reputation -8&lt;/t&gt;</Original>
+            <Original>&lt;t size='1.3' color='#ffa000'&gt;HOSTAGE RESCUE&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;OPFOR is holding local civilians in a compound in a town beyond our lines. They are guarded, and every day they stay there turns the population further against us.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;Get to the marked position, deal with the guards and free every hostage by walking up to them and using the action. Free them all, keep them alive and be quick: all three raise your reward. If every hostage dies or the time runs out, the mission fails.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1.15' color='#00a0ff'&gt;Cost: 10&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ffa000'&gt;The bonus grows with every hostage kept alive and with speed.&lt;/t&gt;</Original>
         </Key>
         <Key ID="STR_SECONDARY_MISSION5">
             <Original>Cache Raid</Original>
         </Key>
         <Key ID="STR_SECONDARY_BRIEFING5">
-            <Original>&lt;t size='1.3' color='#ffa000'&gt;CACHE RAID&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;OPFOR has hidden a weapons cache near one of its positions. It supplies the cells that ambush our convoys and plant the IEDs.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;Our intelligence only gives you a search area, shown in red on your map. Find the cache, destroy every crate and be quick about it. Heavy fire next to the houses around it will cost you part of your reward, so choose your weapons with care. If the time runs out, the mission fails.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1.15' color='#00a0ff'&gt;Cost: 6&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ffa000'&gt;Reward: civil reputation +3, up to +3 more for a fast raid that spares the buildings, 8 intel and OPFOR alert level reduced by 20%&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ff4040'&gt;Failure: civil reputation -3&lt;/t&gt;</Original>
+            <Original>&lt;t size='1.3' color='#ffa000'&gt;CACHE RAID&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;OPFOR has hidden a weapons cache near one of its positions. It supplies the cells that ambush our convoys and plant the IEDs.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;Our intelligence only gives you a search area, shown in red on your map. Find the cache, destroy every crate and be quick about it. Heavy fire next to the houses around it will cost you part of your reward, so choose your weapons with care. If the time runs out, the mission fails.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1.15' color='#00a0ff'&gt;Cost: 6&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ffa000'&gt;The bonus grows with speed and with every building left standing. Success also lowers the OPFOR alert level by 20%.&lt;/t&gt;</Original>
         </Key>
         <Key ID="STR_SECONDARY_MISSION3">
             <Original>Aid Delivery</Original>
         </Key>
         <Key ID="STR_SECONDARY_BRIEFING3">
-            <Original>&lt;t size='1.3' color='#ffa000'&gt;AID DELIVERY&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;Civilians in a town beyond our lines are short of food and medicine. Winning them over starts with showing up.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;An aid crate waits at your nearest FOB. Bring it to the marked town and set it down in the green area. Keep it undamaged, keep the waiting civilians safe and be quick: all three raise your reward. If the crate is destroyed or the time runs out, the mission fails.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1.15' color='#00a0ff'&gt;Cost: 8&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ffa000'&gt;Reward: civil reputation +4, up to +4 more for a fast and clean delivery, and 10 intel&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ff4040'&gt;Failure: civil reputation -5&lt;/t&gt;</Original>
+            <Original>&lt;t size='1.3' color='#ffa000'&gt;AID DELIVERY&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;Civilians in a town beyond our lines are short of food and medicine. Winning them over starts with showing up.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;An aid crate waits at your nearest FOB. Bring it to the marked town and set it down in the green area. Keep it undamaged, keep the waiting civilians safe and be quick: all three raise your reward. If the crate is destroyed or the time runs out, the mission fails.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1.15' color='#00a0ff'&gt;Cost: 8&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ffa000'&gt;The bonus grows with speed, an undamaged crate and every civilian kept alive.&lt;/t&gt;</Original>
         </Key>
         <Key ID="STR_SIDEMISSION_SUCCESS">
             <Original>%1 complete. Quality %2/100. Civil reputation %3, intel +%4.</Original>
         </Key>
         <Key ID="STR_SIDEMISSION_FAILED">
             <Original>%1 failed. Civil reputation %2.</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_FAILED_REASON">
+            <Original>%1 failed because %3. Civil reputation %2.</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_REASON_TIME">
+            <Original>the time ran out</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_REASON_CRATE">
+            <Original>the aid crate was destroyed</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_REASON_HOSTAGES">
+            <Original>every hostage died</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_REASON_PILOTS">
+            <Original>no pilot survived</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_AID_DESC">
+            <Original>Civilians in %1 are short of food and medicine. Pick up the aid crate at %2 and set it down in the green area in %1. Keep the crate undamaged and the civilians safe. You have %3 minutes.</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_HOSTAGE_DESC">
+            <Original>OPFOR is holding %2 civilians in %1. Go to the marked compound, deal with the guards and free every hostage. You have %3 minutes.</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_CACHE_DESC">
+            <Original>OPFOR has hidden a weapons cache of %2 crates near %1. Search the red area, find it and destroy every crate. Heavy fire next to houses costs you reward. You have %3 minutes.</Original>
+        </Key>
+        <Key ID="STR_SECONDARY_REWARD_REP">
+            <Original>Civil reputation: +%1 to +%2 on success</Original>
+        </Key>
+        <Key ID="STR_SECONDARY_PENALTY_REP">
+            <Original>Failure: civil reputation -%1</Original>
+        </Key>
+        <Key ID="STR_SECONDARY_REWARD_INTEL">
+            <Original>Intel reward: %1</Original>
         </Key>
         <Key ID="STR_SECONDARY_MISSION0">
             <Original>FOB Hunting</Original>

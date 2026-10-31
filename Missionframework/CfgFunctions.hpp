@@ -29,6 +29,7 @@ class KPLIB {
         class sideMissionGetTown        {};
         class sideMissionGuards         {};
         class sideMissionMarker         {};
+        class sideMissionStart          {};
         class sideMissionNotify         {};
         class fillStorage               {};
         class forceBluforCrew           {};

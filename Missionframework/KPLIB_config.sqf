@@ -267,13 +267,16 @@ KPLIB_cr_wounded_gain = 2;
     On success a mission pays the base gain plus the bonus scaled by how well it went (0 to 1).
 */
 KPLIB_sidemissions = [
-    ["STR_SECONDARY_MISSION0", "STR_SECONDARY_BRIEFING0", "res\secondary\fob_hunting.jpg", 15, "fob_hunting", 0, 0, 0, 0, true],
-    ["STR_SECONDARY_MISSION1", "STR_SECONDARY_BRIEFING1", "res\secondary\convoy_hijack.jpg", 10, "convoy_hijack", 0, 0, 0, 0, true],
-    ["STR_SECONDARY_MISSION2", "STR_SECONDARY_BRIEFING2", "res\secondary\sar.jpg", 8, "search_and_rescue", 0, 0, 0, 0, true],
+    ["STR_SECONDARY_MISSION0", "STR_SECONDARY_BRIEFING0", "res\secondary\fob_hunting.jpg", 15, "fob_hunting", 3, 3, 0, 0, true],
+    ["STR_SECONDARY_MISSION1", "STR_SECONDARY_BRIEFING1", "res\secondary\convoy_hijack.jpg", 10, "convoy_hijack", 3, 3, 0, 0, true],
+    ["STR_SECONDARY_MISSION2", "STR_SECONDARY_BRIEFING2", "res\secondary\sar.jpg", 8, "search_and_rescue", 4, 3, 3, 0, true],
     ["STR_SECONDARY_MISSION3", "STR_SECONDARY_BRIEFING3", "", 8, "aid_delivery", 4, 4, 5, 10, false],
     ["STR_SECONDARY_MISSION4", "STR_SECONDARY_BRIEFING4", "", 10, "hostage_rescue", 5, 5, 8, 12, false],
     ["STR_SECONDARY_MISSION5", "STR_SECONDARY_BRIEFING5", "", 6, "cache_raid", 3, 3, 3, 8, true]
 ];
+
+// Time in seconds after which a mission without a time limit (FOB hunting, convoy hijack, search and rescue) no longer pays a speed bonus.
+KPLIB_secondary_softtime = 5400;
 
 // Intel price for the secondary missions, taken from the registry above.
 KPLIB_secondary_missions_costs = KPLIB_sidemissions apply {_x select 3};

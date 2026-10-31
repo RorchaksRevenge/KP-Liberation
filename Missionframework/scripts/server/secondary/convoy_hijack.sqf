@@ -97,6 +97,7 @@ private _convoy_marker_wp3 = createMarkerLocal [ format [ "convoymarkerwp3%1", r
     _x setMarkerSize [0.6, 0.6];
 } foreach [_convoy_marker_wp1, _convoy_marker_wp2, _convoy_marker_wp3];
 
+private _start = time;
 private _mission_in_progress = true;
 private _convoy_attacked = false;
 private _convoy_flee = false;
@@ -157,8 +158,6 @@ deleteMarker _convoy_marker;
 { deleteMarker _x } foreach [_convoy_marker_wp1, _convoy_marker_wp2, _convoy_marker_wp3 ];
 
 KPLIB_enemyReadiness = round (KPLIB_enemyReadiness * 0.85);
-stats_secondary_objectives = stats_secondary_objectives + 1;
-[5] remoteExec ["remote_call_intel"];
-KPLIB_secondary_in_progress = -1; publicVariable "KPLIB_secondary_in_progress";
-sleep 1;
-[] spawn KPLIB_fnc_doSave;
+
+// Pays civil reputation (bonus for speed), counts the objective, removes the marker, tells the players and saves
+[1, true, 0 max (1 - ((time - _start) / KPLIB_secondary_softtime))] call KPLIB_fnc_sideMissionEnd;

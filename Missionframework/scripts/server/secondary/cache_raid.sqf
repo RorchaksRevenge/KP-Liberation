@@ -35,23 +35,24 @@ private _intactAtStart = {damage _x < 0.5} count _buildings;
 
 // Announce: the marker only shows a search area around the cache
 secondary_objective_position = _center;
-secondary_objective_position_marker = _center getPos [500, random 360];
-publicVariable "secondary_objective_position_marker";
-KPLIB_secondary_marker_info = [1200, "ColorRed", "hd_unknown"]; publicVariable "KPLIB_secondary_marker_info";
-KPLIB_secondary_in_progress = _index; publicVariable "KPLIB_secondary_in_progress";
-[secondary_objective_position_marker, _title, 1200, true, "ColorRed", "hd_unknown"] remoteExec ["KPLIB_fnc_sideMissionMarker"];
+[
+    _index, _center getPos [500, random 360], "STR_SIDEMISSION_CACHE_DESC",
+    [markerText ([10000, _center] call KPLIB_fnc_getNearestSector), count _cache, round (KPLIB_cache_time / 60)],
+    [1200, "ColorRed", "hd_unknown"]
+] call KPLIB_fnc_sideMissionStart;
 
 [format ["Cache raid started - position: %1, crates: %2, guards and vehicles: %3, buildings: %4", _center, count _cache, count _guards, count _buildings], "SIDEMISSION"] call KPLIB_fnc_log;
 
 // Wait until the whole cache is destroyed or the time is up
 private _start = time;
 private _result = -1;
+private _reason = "";
 
 while {_result < 0} do {
     sleep 5;
 
     if ((_cache findIf {!isNull _x && {alive _x}}) == -1) exitWith {_result = 1;};
-    if ((time - _start) > KPLIB_cache_time) exitWith {_result = 0;};
+    if ((time - _start) > KPLIB_cache_time) exitWith {_result = 0; _reason = "STR_SIDEMISSION_REASON_TIME";};
 };
 
 // Quality: speed and buildings left standing
@@ -67,4 +68,4 @@ if (_result == 1) then {
     KPLIB_enemyReadiness = round (KPLIB_enemyReadiness * (1 - KPLIB_cache_readiness_impact));
 };
 
-[_index, _result == 1, _quality] call KPLIB_fnc_sideMissionEnd;
+[_index, _result == 1, _quality, _reason] call KPLIB_fnc_sideMissionEnd;

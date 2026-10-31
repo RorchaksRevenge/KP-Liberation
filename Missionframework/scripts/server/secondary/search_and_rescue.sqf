@@ -91,6 +91,8 @@ sleep 1;
 KPLIB_secondary_in_progress = 2; publicVariable "KPLIB_secondary_in_progress";
 [6] remoteExec ["remote_call_intel"];
 
+private _start = time;
+
 waitUntil {
     sleep 5;
     { ( alive _x ) && ( _x distance ( [ getpos _x ] call KPLIB_fnc_getNearestFob ) > 50 ) } count _pilotUnits == 0
@@ -99,10 +101,7 @@ waitUntil {
 sleep 5;
 
 private _alive_crew_count = { alive _x } count _pilotUnits;
-if ( _alive_crew_count == 0 ) then {
-    [7] remoteExec ["remote_call_intel"];
-} else {
-    [8] remoteExec ["remote_call_intel"];
+if ( _alive_crew_count > 0 ) then {
     private _grp = createGroup [KPLIB_side_player, true];
     { [_x ] joinSilent _grp; } foreach _pilotUnits;
     while {(count (waypoints _grp)) != 0} do {deleteWaypoint ((waypoints _grp) select 0);};
@@ -110,9 +109,8 @@ if ( _alive_crew_count == 0 ) then {
     { [ _x ] spawn { sleep 600; deleteVehicle (_this select 0) } } foreach _pilotUnits;
 };
 
+// The crew pays 10 intel each; the civil reputation and the debrief come from the common mission end.
+// Quality: pilots brought back and speed. No pilot alive is a failure.
 resources_intel = resources_intel + (10 * _alive_crew_count);
-stats_secondary_objectives = stats_secondary_objectives + 1;
-
-KPLIB_secondary_in_progress = -1; publicVariable "KPLIB_secondary_in_progress";
-sleep 1;
-doSaveTrigger = true;
+private _quality = (0.6 * (_alive_crew_count / (1 max (count _pilotUnits)))) + (0.4 * (0 max (1 - ((time - _start) / KPLIB_secondary_softtime))));
+[2, _alive_crew_count > 0, _quality, "STR_SIDEMISSION_REASON_PILOTS"] call KPLIB_fnc_sideMissionEnd;

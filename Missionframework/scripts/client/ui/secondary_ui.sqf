@@ -25,7 +25,14 @@ while { dialog && alive player && dostartsecondary == 0 } do {
     if ( _oldchoice != lbCurSel 101 ) then {
         _oldchoice = lbCurSel 101;
         ctrlSetText [ 106, _images select _oldchoice ];
-        ((findDisplay 6842) displayCtrl (102)) ctrlSetStructuredText parseText localize (_briefings select _oldchoice);
+        // What the mission pays and costs, from the registry, above the briefing
+        private _m = KPLIB_sidemissions select _oldchoice;
+        private _lines = [];
+        if ((_m select 5) > 0) then {_lines pushBack format [localize "STR_SECONDARY_REWARD_REP", _m select 5, (_m select 5) + (_m select 6)];};
+        if ((_m select 7) > 0) then {_lines pushBack format [localize "STR_SECONDARY_PENALTY_REP", _m select 7];};
+        if ((_m select 8) > 0) then {_lines pushBack format [localize "STR_SECONDARY_REWARD_INTEL", _m select 8];};
+        private _block = if (_lines isEqualTo []) then {""} else {"<t size='1.1' color='#80d080'>" + (_lines joinString "<br/>") + "</t><br/><br/>"};
+        ((findDisplay 6842) displayCtrl (102)) ctrlSetStructuredText parseText (_block + localize (_briefings select _oldchoice));
     };
 
     _missioncost = KPLIB_secondary_missions_costs select _oldchoice;

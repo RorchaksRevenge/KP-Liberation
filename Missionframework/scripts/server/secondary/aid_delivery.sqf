@@ -41,11 +41,11 @@ _civGroup setBehaviour "SAFE";
 
 // Announce
 secondary_objective_position = _dest;
-secondary_objective_position_marker = _dest;
-publicVariable "secondary_objective_position_marker";
-KPLIB_secondary_marker_info = [KPLIB_aidmission_radius, "ColorGreen", "mil_objective"]; publicVariable "KPLIB_secondary_marker_info";
-KPLIB_secondary_in_progress = _index; publicVariable "KPLIB_secondary_in_progress";
-[_dest, _title, KPLIB_aidmission_radius, true] remoteExec ["KPLIB_fnc_sideMissionMarker"];
+[
+    _index, _dest, "STR_SIDEMISSION_AID_DESC",
+    [markerText _town, [_fob] call KPLIB_fnc_getFobName, round (KPLIB_aidmission_time / 60)],
+    [KPLIB_aidmission_radius, "ColorGreen", "mil_objective"]
+] call KPLIB_fnc_sideMissionStart;
 
 [format ["Aid delivery started - town: %1, destination: %2, FOB: %3, crate at: %4", _town, _dest, _fob, _cratePos], "SIDEMISSION"] call KPLIB_fnc_log;
 
@@ -53,12 +53,13 @@ KPLIB_secondary_in_progress = _index; publicVariable "KPLIB_secondary_in_progres
 private _start = time;
 private _result = -1;
 private _hold = 0;
+private _reason = "";
 
 while {_result < 0} do {
     sleep 5;
 
-    if (isNull _crate || {!alive _crate}) exitWith {_result = 0;};
-    if ((time - _start) > KPLIB_aidmission_time) exitWith {_result = 0;};
+    if (isNull _crate || {!alive _crate}) exitWith {_result = 0; _reason = "STR_SIDEMISSION_REASON_CRATE";};
+    if ((time - _start) > KPLIB_aidmission_time) exitWith {_result = 0; _reason = "STR_SIDEMISSION_REASON_TIME";};
 
     _crateMarker setMarkerPos (getPosATL _crate);
 
@@ -87,7 +88,7 @@ if (_result == 1) then {
 };
 
 deleteMarker _crateMarker;
-[_index, _result == 1, _quality] call KPLIB_fnc_sideMissionEnd;
+[_index, _result == 1, _quality, _reason] call KPLIB_fnc_sideMissionEnd;
 
 // Clean up after the players had time to see the result
 sleep 120;
