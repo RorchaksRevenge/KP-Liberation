@@ -96,7 +96,8 @@ if(isServer) then {
     GET_PARAM_BOOL(KPLIB_param_zeusLimited, "LimitedZeus", 1);
     GET_PARAM_BOOL(KPLIB_param_zeusCommander, "CommanderZeus", 1);
     GET_PARAM_BOOL(KPLIB_param_zeusAddEnemies, "ZeusAddEnemies", 1);
-    GET_PARAM_BOOL(KPLIB_param_highCommand, "HighCommand", 1);
+    KPLIB_param_highCommand = false; // high command removed: no AI recruiting
+    publicVariable "KPLIB_param_highCommand";
     GET_PARAM(KPLIB_param_supportModule, "SuppMod", 1);
     GET_PARAM_BOOL(KPLIB_param_tutorial, "Tutorial", 1);
 

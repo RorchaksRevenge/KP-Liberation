@@ -311,12 +311,6 @@ class Params {
         texts[] = {$STR_PARAMS_ENABLED, $STR_PARAMS_DISABLED};
         default = 0;
     };
-    class HighCommand {
-        title = $STR_PARAM_HIGHCOMMAND;
-        values[] = {1, 0};
-        texts[] = {$STR_PARAMS_ENABLED, $STR_PARAMS_DISABLED};
-        default = 1;
-    };
     class SuppMod {
         title = $STR_PARAM_SUPPMOD;
         values[] = {0, 1, 2};
