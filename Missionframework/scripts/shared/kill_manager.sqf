@@ -107,8 +107,8 @@ params ["_unit", "_killer"];
         if (side (group _unit) == KPLIB_side_civilian) then {
             stats_civilians_killed = stats_civilians_killed + 1;
 
-            // Killed by BLUFOR
-            if (side _killer == KPLIB_side_player) then {
+            // Killed by BLUFOR (civilians which belong to a side mission cost no civil reputation)
+            if (side _killer == KPLIB_side_player && {!(_unit getVariable ["KPLIB_missionCivilian", false])}) then {
                 if (KPLIB_civrep_debug > 0) then {[format ["Civilian killed by: %1", name _killer], "CIVREP"] call KPLIB_fnc_log;};
                 [2, [(name _unit)]] remoteExec ["KPLIB_fnc_crGlobalMsg"];
                 [KPLIB_cr_kill_penalty, true] spawn F_cr_changeCR;

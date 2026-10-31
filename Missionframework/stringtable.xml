@@ -3519,6 +3519,18 @@
             <Korean>이용 안내</Korean>
             <Czech>NÁVOD</Czech>
         </Key>
+        <Key ID="STR_SECONDARY_MISSION3">
+            <Original>Aid Delivery</Original>
+        </Key>
+        <Key ID="STR_SECONDARY_BRIEFING3">
+            <Original>&lt;t size='1.3' color='#ffa000'&gt;AID DELIVERY&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;Civilians in a town beyond our lines are short of food and medicine. Winning them over starts with showing up.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;An aid crate waits at your nearest FOB. Bring it to the marked town and set it down in the green area. Keep it undamaged, keep the waiting civilians safe and be quick: all three raise your reward. If the crate is destroyed or the time runs out, the mission fails.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1.15' color='#00a0ff'&gt;Cost: 8&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ffa000'&gt;Reward: civil reputation +4, up to +4 more for a fast and clean delivery, and 10 intel&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ff4040'&gt;Failure: civil reputation -5&lt;/t&gt;</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_SUCCESS">
+            <Original>%1 complete. Quality %2/100. Civil reputation %3, intel +%4.</Original>
+        </Key>
+        <Key ID="STR_SIDEMISSION_FAILED">
+            <Original>%1 failed. Civil reputation %2.</Original>
+        </Key>
         <Key ID="STR_SECONDARY_MISSION0">
             <Original>FOB Hunting</Original>
             <French>Chasse à la FOB</French>

@@ -260,8 +260,27 @@ KPLIB_cr_wounded_gain = 2;
 ------------------------------------------------------------
 */
 
-// Intel price for the secondary missions. [FOB hunting, Convoy ambush, SAR]
-KPLIB_secondary_missions_costs = [15, 10, 8];
+/*
+    Side mission registry. One entry per mission, in the order of the mission dialog:
+    [title key, briefing key, image, intel cost, server script variable, base civil rep gain, max civil rep bonus, civil rep loss on failure, intel reward, needs enemy spawn point]
+    The civil rep gain and the intel reward are only paid by missions which finish through KPLIB_fnc_sideMissionEnd.
+    On success a mission pays the base gain plus the bonus scaled by how well it went (0 to 1).
+*/
+KPLIB_sidemissions = [
+    ["STR_SECONDARY_MISSION0", "STR_SECONDARY_BRIEFING0", "res\secondary\fob_hunting.jpg", 15, "fob_hunting", 0, 0, 0, 0, true],
+    ["STR_SECONDARY_MISSION1", "STR_SECONDARY_BRIEFING1", "res\secondary\convoy_hijack.jpg", 10, "convoy_hijack", 0, 0, 0, 0, true],
+    ["STR_SECONDARY_MISSION2", "STR_SECONDARY_BRIEFING2", "res\secondary\sar.jpg", 8, "search_and_rescue", 0, 0, 0, 0, true],
+    ["STR_SECONDARY_MISSION3", "STR_SECONDARY_BRIEFING3", "", 8, "aid_delivery", 4, 4, 5, 10, false]
+];
+
+// Intel price for the secondary missions, taken from the registry above.
+KPLIB_secondary_missions_costs = KPLIB_sidemissions apply {_x select 3};
+
+// Aid delivery: time limit (seconds), delivery radius (m), distance of the town from the nearest FOB (min, max in m) and number of civilians waiting for the aid.
+KPLIB_aidmission_time = 3600;
+KPLIB_aidmission_radius = 40;
+KPLIB_aidmission_distance = [1500, 6000];
+KPLIB_aidmission_recipients = 6;
 
 // Proportionate reduction of the actual (!) enemy combat readiness for a successful FOB hunt. (e.g. 0.4 -> reduction of 24 by an actual value of 60)
 KPLIB_secondary_objective_impact = 0.4;
