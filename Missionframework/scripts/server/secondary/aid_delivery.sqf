@@ -5,32 +5,14 @@ private _index = 3;
 private _mission = KPLIB_sidemissions select _index;
 private _title = localize (_mission select 0);
 
-if (isNil "KPLIB_aid_used_towns") then {KPLIB_aid_used_towns = [];};
-
 private _refund = {
     resources_intel = resources_intel + (_mission select 3);
     ["Aid delivery: no suitable town or FOB found right now. Your intel was refunded."] remoteExec ["hint"];
 };
 
-if (KPLIB_sectors_fob isEqualTo []) exitWith {call _refund; [format ["Aid delivery: no FOB available"], "SIDEMISSION"] call KPLIB_fnc_log;};
-
-// Town: a city or capital that isn't ours, at a fair distance from the nearest FOB, not used before in this session
-private _distance = KPLIB_aidmission_distance;
-private _towns = (KPLIB_sectors_city + KPLIB_sectors_capital) select {
-    private _town = _x;
-    private _tPos = markerPos _town;
-    private _nearest = selectMin (KPLIB_sectors_fob apply {_x distance2D _tPos});
-    !(_town in KPLIB_sectors_player) && {!(_town in KPLIB_aid_used_towns)} && {_nearest >= (_distance select 0)} && {_nearest <= (_distance select 1)}
-};
-if (_towns isEqualTo []) then {_towns = (KPLIB_sectors_city + KPLIB_sectors_capital) select {!(_x in KPLIB_sectors_player)};};
-if (_towns isEqualTo []) exitWith {call _refund; ["Aid delivery: no town found", "SIDEMISSION"] call KPLIB_fnc_log;};
-
-private _town = selectRandom _towns;
-KPLIB_aid_used_towns pushBackUnique _town;
-private _townPos = markerPos _town;
-private _dest = [_townPos, 5, 80, 6, 0, 0.35, 0] call BIS_fnc_findSafePos;
-if ((_dest distance2D _townPos) > 200) then {_dest = _townPos;};
-_dest = [_dest select 0, _dest select 1, 0];
+private _found = [KPLIB_aidmission_distance] call KPLIB_fnc_sideMissionGetTown;
+if (_found isEqualTo []) exitWith {call _refund; ["Aid delivery: no town or FOB available", "SIDEMISSION"] call KPLIB_fnc_log;};
+_found params ["_town", "_dest"];
 
 // Aid crate at the FOB nearest to the town
 private _fobs = KPLIB_sectors_fob apply {[_x distance2D _dest, _x]};
@@ -61,6 +43,7 @@ _civGroup setBehaviour "SAFE";
 secondary_objective_position = _dest;
 secondary_objective_position_marker = _dest;
 publicVariable "secondary_objective_position_marker";
+KPLIB_secondary_marker_info = [KPLIB_aidmission_radius, "ColorGreen", "mil_objective"]; publicVariable "KPLIB_secondary_marker_info";
 KPLIB_secondary_in_progress = _index; publicVariable "KPLIB_secondary_in_progress";
 [_dest, _title, KPLIB_aidmission_radius, true] remoteExec ["KPLIB_fnc_sideMissionMarker"];
 

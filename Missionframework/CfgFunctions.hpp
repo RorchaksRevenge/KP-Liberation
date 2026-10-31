@@ -24,7 +24,10 @@ class KPLIB {
         class crGetMulti                {};
         class crGlobalMsg               {};
         class doSave                    {};
+        class freeHostage               {};
         class sideMissionEnd            {};
+        class sideMissionGetTown        {};
+        class sideMissionGuards         {};
         class sideMissionMarker         {};
         class sideMissionNotify         {};
         class fillStorage               {};

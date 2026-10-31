@@ -25,6 +25,8 @@ fob_hunting = compile preprocessFileLineNumbers "scripts\server\secondary\fob_hu
 convoy_hijack = compile preprocessFileLineNumbers "scripts\server\secondary\convoy_hijack.sqf";
 search_and_rescue = compile preprocessFileLineNumbers "scripts\server\secondary\search_and_rescue.sqf";
 aid_delivery = compile preprocessFileLineNumbers "scripts\server\secondary\aid_delivery.sqf";
+hostage_rescue = compile preprocessFileLineNumbers "scripts\server\secondary\hostage_rescue.sqf";
+cache_raid = compile preprocessFileLineNumbers "scripts\server\secondary\cache_raid.sqf";
 
 // Sector
 attack_in_progress_fob = compile preprocessFileLineNumbers "scripts\server\sector\attack_in_progress_fob.sqf";

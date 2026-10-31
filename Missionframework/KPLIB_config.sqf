@@ -270,7 +270,9 @@ KPLIB_sidemissions = [
     ["STR_SECONDARY_MISSION0", "STR_SECONDARY_BRIEFING0", "res\secondary\fob_hunting.jpg", 15, "fob_hunting", 0, 0, 0, 0, true],
     ["STR_SECONDARY_MISSION1", "STR_SECONDARY_BRIEFING1", "res\secondary\convoy_hijack.jpg", 10, "convoy_hijack", 0, 0, 0, 0, true],
     ["STR_SECONDARY_MISSION2", "STR_SECONDARY_BRIEFING2", "res\secondary\sar.jpg", 8, "search_and_rescue", 0, 0, 0, 0, true],
-    ["STR_SECONDARY_MISSION3", "STR_SECONDARY_BRIEFING3", "", 8, "aid_delivery", 4, 4, 5, 10, false]
+    ["STR_SECONDARY_MISSION3", "STR_SECONDARY_BRIEFING3", "", 8, "aid_delivery", 4, 4, 5, 10, false],
+    ["STR_SECONDARY_MISSION4", "STR_SECONDARY_BRIEFING4", "", 10, "hostage_rescue", 5, 5, 8, 12, false],
+    ["STR_SECONDARY_MISSION5", "STR_SECONDARY_BRIEFING5", "", 6, "cache_raid", 3, 3, 3, 8, true]
 ];
 
 // Intel price for the secondary missions, taken from the registry above.
@@ -281,6 +283,15 @@ KPLIB_aidmission_time = 3600;
 KPLIB_aidmission_radius = 40;
 KPLIB_aidmission_distance = [1500, 6000];
 KPLIB_aidmission_recipients = 6;
+
+// Hostage rescue: number of hostages and time limit (seconds). The town is picked like the aid delivery town.
+KPLIB_hostage_count = 4;
+KPLIB_hostage_time = 3600;
+
+// Cache raid: number of crates in the cache, time limit (seconds) and the proportionate reduction of the enemy combat readiness on success.
+KPLIB_cache_crates = 4;
+KPLIB_cache_time = 3600;
+KPLIB_cache_readiness_impact = 0.2;
 
 // Proportionate reduction of the actual (!) enemy combat readiness for a successful FOB hunt. (e.g. 0.4 -> reduction of 24 by an actual value of 60)
 KPLIB_secondary_objective_impact = 0.4;

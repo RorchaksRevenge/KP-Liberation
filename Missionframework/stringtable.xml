@@ -3519,6 +3519,18 @@
             <Korean>이용 안내</Korean>
             <Czech>NÁVOD</Czech>
         </Key>
+        <Key ID="STR_SECONDARY_MISSION4">
+            <Original>Hostage Rescue</Original>
+        </Key>
+        <Key ID="STR_SECONDARY_BRIEFING4">
+            <Original>&lt;t size='1.3' color='#ffa000'&gt;HOSTAGE RESCUE&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;OPFOR is holding local civilians in a compound in a town beyond our lines. They are guarded, and every day they stay there turns the population further against us.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;Get to the marked position, deal with the guards and free every hostage by walking up to them and using the action. Free them all, keep them alive and be quick: all three raise your reward. If every hostage dies or the time runs out, the mission fails.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1.15' color='#00a0ff'&gt;Cost: 10&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ffa000'&gt;Reward: civil reputation +5, up to +5 more for a fast rescue with every hostage alive, and 12 intel&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ff4040'&gt;Failure: civil reputation -8&lt;/t&gt;</Original>
+        </Key>
+        <Key ID="STR_SECONDARY_MISSION5">
+            <Original>Cache Raid</Original>
+        </Key>
+        <Key ID="STR_SECONDARY_BRIEFING5">
+            <Original>&lt;t size='1.3' color='#ffa000'&gt;CACHE RAID&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;OPFOR has hidden a weapons cache near one of its positions. It supplies the cells that ambush our convoys and plant the IEDs.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1'&gt;Our intelligence only gives you a search area, shown in red on your map. Find the cache, destroy every crate and be quick about it. Heavy fire next to the houses around it will cost you part of your reward, so choose your weapons with care. If the time runs out, the mission fails.&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;&lt;t size='1.15' color='#00a0ff'&gt;Cost: 6&lt;img image='\A3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa'/&gt;&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ffa000'&gt;Reward: civil reputation +3, up to +3 more for a fast raid that spares the buildings, 8 intel and OPFOR alert level reduced by 20%&lt;/t&gt;&lt;br/&gt;&lt;t size='1.15' color='#ff4040'&gt;Failure: civil reputation -3&lt;/t&gt;</Original>
+        </Key>
         <Key ID="STR_SECONDARY_MISSION3">
             <Original>Aid Delivery</Original>
         </Key>
